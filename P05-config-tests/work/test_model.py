@@ -30,6 +30,36 @@ def test_error_is_better_than_guessing(model_mae, baseline_mae):
 
 
 def test_heavier_traffic_is_never_faster(trained_model):
-    light = trained_model.predict(make_order(traffic_level=1))[0]
-    heavy = trained_model.predict(make_order(traffic_level=3))[0]
-    assert heavy >= light
+    pred_level1 = trained_model.predict([[
+        5.0, 20, 1, 0
+    ]])[0]
+
+    pred_level3 = trained_model.predict([[
+        5.0, 20, 3, 0
+    ]])[0]
+
+    assert pred_level3 >= pred_level1
+
+
+def test_heavier_traffic_is_never_faster(trained_model):
+    pred_level1 = trained_model.predict([[
+        5.0, 20, 1, 0
+    ]])[0]
+
+    pred_level3 = trained_model.predict([[
+        5.0, 20, 3, 0
+    ]])[0]
+
+    assert pred_level3 >= pred_level1
+
+
+def test_heavier_traffic_is_never_faster(trained_model):
+    pred_level1 = trained_model.predict([[
+        5.0, 20, 1, 0
+    ]])[0]
+
+    pred_level3 = trained_model.predict([[
+        5.0, 20, 3, 0
+    ]])[0]
+
+    assert pred_level3 >= pred_level1
